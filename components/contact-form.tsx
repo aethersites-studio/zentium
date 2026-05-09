@@ -69,7 +69,12 @@ export function ContactForm() {
         </h2>
         <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
           Thank you for reaching out. A member of our team will review your
-          information and send you your audit findings report shortly.
+          information and send you your audit findings report shortly. For
+          urgent requests, email{" "}
+          <a href="mailto:hello@zentiumhq.com" className="underline hover:no-underline">
+            hello@zentiumhq.com
+          </a>
+          .
         </p>
       </div>
     );
@@ -263,6 +268,13 @@ export function ContactForm() {
           </>
         )}
       </button>
+
+      <p className="text-xs text-muted-foreground">
+        Prefer direct email?{" "}
+        <a href="mailto:hello@zentiumhq.com" className="underline hover:no-underline">
+          hello@zentiumhq.com
+        </a>
+      </p>
     </form>
   );
 }

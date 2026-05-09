@@ -37,8 +37,8 @@ export default function TermsPage() {
           </h2>
           <p>
             Questions? Email{" "}
-            <a href="mailto:hello@zentium.co" className="text-foreground underline">
-              hello@zentium.co
+            <a href="mailto:hello@zentiumhq.com" className="text-foreground underline">
+              hello@zentiumhq.com
             </a>
             .
           </p>

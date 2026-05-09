@@ -40,8 +40,8 @@ export default function PrivacyPage() {
           </h2>
           <p>
             Questions about this policy? Email us at{" "}
-            <a href="mailto:hello@zentium.co" className="text-foreground underline">
-              hello@zentium.co
+            <a href="mailto:hello@zentiumhq.com" className="text-foreground underline">
+              hello@zentiumhq.com
             </a>
             .
           </p>

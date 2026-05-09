@@ -114,7 +114,7 @@
     caret-color: oklch(0.94 0.004 240);
     box-shadow: 0 0 0 1000px #0a0a0a inset !important;
     -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
-    border-color: oklch(1 0 0 / 12%) !important;
+    border-color: #2a2a2a !important;
     transition: background-color 9999s ease-in-out 0s;
   }
 
@@ -122,6 +122,14 @@
   textarea:focus,
   select:focus {
     outline: none;
+    box-shadow: none;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+    box-shadow: none;
   }
 }
 

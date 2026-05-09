@@ -31,6 +31,7 @@ export function ContactForm() {
   const defaultPackage = searchParams.get("package") ?? "";
 
   const [formState, setFormState] = useState<FormState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [form, setForm] = useState({
     name: "",
     firmName: "",
@@ -53,9 +54,29 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("submitting");
-    // Simulate async submission wire to your API/form provider here
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setFormState("success");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/audit-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json()) as { error?: string };
+        throw new Error(data.error || "Failed to submit form.");
+      }
+
+      setFormState("success");
+    } catch (error) {
+      setFormState("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please email hello@zentiumhq.com."
+      );
+    }
   };
 
   if (formState === "success") {
@@ -268,6 +289,12 @@ export function ContactForm() {
           </>
         )}
       </button>
+
+      {formState === "error" ? (
+        <p className="text-sm text-destructive">
+          {errorMessage || "Something went wrong. Please email hello@zentiumhq.com."}
+        </p>
+      ) : null}
 
       <p className="text-xs text-muted-foreground">
         Prefer direct email?{" "}

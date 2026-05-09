@@ -119,7 +119,7 @@ export function ContactForm() {
             value={form.name}
             onChange={handleChange}
             placeholder="Jane Smith"
-            className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+            className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[#F5A623] transition-shadow"
           />
         </div>
         <div>
@@ -137,7 +137,7 @@ export function ContactForm() {
             value={form.firmName}
             onChange={handleChange}
             placeholder="Smith Family Law"
-            className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+            className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[#F5A623] transition-shadow"
           />
         </div>
       </div>
@@ -158,7 +158,7 @@ export function ContactForm() {
             value={form.email}
             onChange={handleChange}
             placeholder="jane@smithfamilylaw.com"
-            className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+            className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[#F5A623] transition-shadow"
           />
         </div>
         <div>
@@ -175,7 +175,7 @@ export function ContactForm() {
             value={form.phone}
             onChange={handleChange}
             placeholder="(555) 000-0000"
-            className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+            className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[#F5A623] transition-shadow"
           />
         </div>
       </div>
@@ -195,7 +195,7 @@ export function ContactForm() {
           value={form.website}
           onChange={handleChange}
           placeholder="https://smithfamilylaw.com"
-          className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+          className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[#F5A623] transition-shadow"
         />
       </div>
 
@@ -212,7 +212,7 @@ export function ContactForm() {
             name="practiceArea"
             value={form.practiceArea}
             onChange={handleChange}
-            className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow appearance-none cursor-pointer"
+            className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground focus:outline-none focus:border-[#F5A623] transition-shadow appearance-none cursor-pointer"
           >
             <option value="">Select one</option>
             {practiceAreas.map((area) => (
@@ -234,7 +234,7 @@ export function ContactForm() {
             name="package"
             value={form.package}
             onChange={handleChange}
-            className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow appearance-none cursor-pointer"
+            className="w-full h-10 px-3 rounded-md border border-input bg-card text-sm text-foreground focus:outline-none focus:border-[#F5A623] transition-shadow appearance-none cursor-pointer"
           >
             {packageOptions.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -259,7 +259,7 @@ export function ContactForm() {
           value={form.message}
           onChange={handleChange}
           placeholder="Tell us about your current situation, goals, or any specific concerns about your online presence..."
-          className="w-full px-3 py-2.5 rounded-md border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow resize-none"
+          className="w-full px-3 py-2.5 rounded-md border border-input bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-[#F5A623] transition-shadow resize-none"
         />
       </div>
 

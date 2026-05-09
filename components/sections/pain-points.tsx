@@ -22,7 +22,7 @@ const painPoints = [
   },
   {
     problem: "Zero visibility into actual work being done.",
-    solution: "Async updates, shared task boards, and weekly progress check-ins always.",
+    solution: "Async updates, shared task boards, and weekly reports always.",
   },
   {
     problem: "Clearly a low-priority account at a large agency.",

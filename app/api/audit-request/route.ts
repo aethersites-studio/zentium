@@ -56,21 +56,21 @@ export async function POST(req: Request) {
     const safeEmail = escapeHtml(body.email);
 
     const html = `
-      <div style="margin:0;padding:24px;background:#f5f7fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#121826;">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;margin:0 auto;background:#ffffff;border:1px solid #e6e9f0;border-radius:14px;overflow:hidden;">
+      <div style="margin:0;padding:0;background:#0b0d12;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#e7ebf4;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#0b0d12;">
           <tr>
-            <td style="padding:22px 24px;background:#0f1115;border-bottom:1px solid #1e232e;">
+            <td style="padding:28px 30px 16px 30px;border-bottom:1px solid #232939;background:#0b0d12;">
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#f5a623;font-weight:700;">Zentium Lead Alert</td>
-                  <td style="text-align:right;font-size:12px;color:#b8c0d1;">${escapeHtml(submittedAt)} PT</td>
+                  <td style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#f5a623;font-weight:700;">Zentium Lead Alert</td>
+                  <td style="text-align:right;font-size:12px;color:#9ca7bf;">${escapeHtml(submittedAt)} PT</td>
                 </tr>
                 <tr>
-                  <td colspan="2" style="padding-top:10px;font-size:28px;line-height:1.2;color:#ffffff;font-weight:700;">New Free Audit Request</td>
+                  <td colspan="2" style="padding-top:10px;font-size:36px;line-height:1.1;color:#ffffff;font-weight:700;">New Free Audit Request</td>
                 </tr>
                 <tr>
-                  <td colspan="2" style="padding-top:8px;font-size:16px;color:#cfd5e3;">
-                    ${safeFirmName} <span style="color:#6f7b96;">&bull;</span> ${safeName}
+                  <td colspan="2" style="padding-top:10px;font-size:18px;line-height:1.4;color:#c8d0e1;">
+                    ${safeFirmName} <span style="color:#6d7891;">&bull;</span> ${safeName}
                   </td>
                 </tr>
               </table>
@@ -78,61 +78,69 @@ export async function POST(req: Request) {
           </tr>
 
           <tr>
-            <td style="padding:20px 24px 8px 24px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:14px;">
+            <td style="padding:18px 30px 8px 30px;background:#131722;border-bottom:1px solid #232939;">
+              <table role="presentation" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td style="padding:0 8px 8px 0;">
-                    <a href="mailto:${safeEmail}" style="display:inline-block;padding:10px 14px;border-radius:10px;background:#111827;color:#ffffff;text-decoration:none;font-size:13px;font-weight:600;">Reply to Lead</a>
+                  <td style="padding:0 10px 10px 0;">
+                    <a href="mailto:${safeEmail}" style="display:inline-block;padding:10px 14px;border-radius:8px;background:#f5a623;color:#161616;text-decoration:none;font-size:13px;font-weight:700;">Reply to Lead</a>
                   </td>
-                  <td style="padding:0 8px 8px 0;">
-                    <a href="${safeWebsiteUrl}" style="display:inline-block;padding:10px 14px;border-radius:10px;background:#eef2ff;color:#111827;text-decoration:none;font-size:13px;font-weight:600;">Open Website</a>
+                  <td style="padding:0 10px 10px 0;">
+                    <a href="${safeWebsiteUrl}" style="display:inline-block;padding:10px 14px;border-radius:8px;background:#1b2233;color:#dce3f4;text-decoration:none;font-size:13px;font-weight:600;">Open Website</a>
                   </td>
-                  <td style="padding:0 8px 8px 0;">
-                    <a href="tel:${safePhone}" style="display:inline-block;padding:10px 14px;border-radius:10px;background:#fff7e8;color:#7a4b00;text-decoration:none;font-size:13px;font-weight:600;">Call Lead</a>
+                  <td style="padding:0 10px 10px 0;">
+                    <a href="tel:${safePhone}" style="display:inline-block;padding:10px 14px;border-radius:8px;background:#1b2233;color:#dce3f4;text-decoration:none;font-size:13px;font-weight:600;">Call Lead</a>
                   </td>
                 </tr>
               </table>
+            </td>
+          </tr>
 
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #e6e9f0;border-radius:12px;overflow:hidden;">
+          <tr>
+            <td style="padding:14px 30px;background:#10141f;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:1px solid #2b3141;">
                 <tr>
-                  <td style="width:34%;padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;border-bottom:1px solid #e6e9f0;">Name</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;border-bottom:1px solid #e6e9f0;">${safeName}</td>
+                  <td style="width:30%;padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;border-bottom:1px solid #2b3141;">Name</td>
+                  <td style="padding:12px 14px;font-size:15px;color:#edf2ff;background:#10141f;border-bottom:1px solid #2b3141;">${safeName}</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;border-bottom:1px solid #e6e9f0;">Firm Name</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;border-bottom:1px solid #e6e9f0;">${safeFirmName}</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;border-bottom:1px solid #2b3141;">Firm Name</td>
+                  <td style="padding:12px 14px;font-size:15px;color:#edf2ff;background:#10141f;border-bottom:1px solid #2b3141;">${safeFirmName}</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;border-bottom:1px solid #e6e9f0;">Email</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;border-bottom:1px solid #e6e9f0;"><a href="mailto:${safeEmail}" style="color:#0f5bd7;text-decoration:none;">${safeEmail}</a></td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;border-bottom:1px solid #2b3141;">Email</td>
+                  <td style="padding:12px 14px;font-size:15px;background:#10141f;border-bottom:1px solid #2b3141;"><a href="mailto:${safeEmail}" style="color:#f5a623;text-decoration:none;">${safeEmail}</a></td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;border-bottom:1px solid #e6e9f0;">Phone</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;border-bottom:1px solid #e6e9f0;">${safePhone}</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;border-bottom:1px solid #2b3141;">Phone</td>
+                  <td style="padding:12px 14px;font-size:15px;color:#edf2ff;background:#10141f;border-bottom:1px solid #2b3141;">${safePhone}</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;border-bottom:1px solid #e6e9f0;">Website</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;border-bottom:1px solid #e6e9f0;"><a href="${safeWebsiteUrl}" style="color:#0f5bd7;text-decoration:none;">${safeWebsiteUrl}</a></td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;border-bottom:1px solid #2b3141;">Website</td>
+                  <td style="padding:12px 14px;font-size:15px;background:#10141f;border-bottom:1px solid #2b3141;"><a href="${safeWebsiteUrl}" style="color:#f5a623;text-decoration:none;">${safeWebsiteUrl}</a></td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;border-bottom:1px solid #e6e9f0;">Practice Area</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;border-bottom:1px solid #e6e9f0;">${safePracticeArea}</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;border-bottom:1px solid #2b3141;">Practice Area</td>
+                  <td style="padding:12px 14px;font-size:15px;color:#edf2ff;background:#10141f;border-bottom:1px solid #2b3141;">${safePracticeArea}</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;background:#f8faff;">Package Interest</td>
-                  <td style="padding:12px 14px;font-size:14px;color:#111827;">${safePackage}</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#9ca7bf;background:#171c2a;">Package Interest</td>
+                  <td style="padding:12px 14px;font-size:15px;color:#edf2ff;background:#10141f;">${safePackage}</td>
                 </tr>
               </table>
+            </td>
+          </tr>
 
-              <div style="margin-top:14px;border:1px solid #e6e9f0;border-radius:12px;background:#fcfdff;">
-                <div style="padding:12px 14px;font-size:12px;font-weight:700;color:#5b6478;border-bottom:1px solid #e6e9f0;">Lead Message</div>
-                <div style="padding:14px;font-size:14px;line-height:1.55;color:#111827;">${safeMessage}</div>
+          <tr>
+            <td style="padding:8px 30px 18px 30px;background:#10141f;">
+              <div style="font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#9ca7bf;margin-bottom:8px;">Lead Message</div>
+              <div style="padding:14px;border:1px solid #2b3141;background:#0f131d;font-size:15px;line-height:1.6;color:#edf2ff;">
+                ${safeMessage}
               </div>
             </td>
           </tr>
 
           <tr>
-            <td style="padding:14px 24px 22px 24px;font-size:12px;color:#6f7b96;">
+            <td style="padding:14px 30px 26px 30px;background:#0b0d12;color:#7f8aa3;font-size:12px;border-top:1px solid #232939;">
               Sent from Zentium free audit form. Replying goes directly to the lead.
             </td>
           </tr>

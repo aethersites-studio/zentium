@@ -97,28 +97,6 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
-
-  /* Keep autofilled fields visually identical to untouched dark inputs */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover {
-    -webkit-text-fill-color: oklch(0.94 0.004 240) !important;
-    box-shadow: 0 0 0 1000px #0a0a0a inset !important;
-    -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
-    border-color: oklch(1 0 0 / 9%) !important;
-  }
-
-  input:-webkit-autofill:focus,
-  textarea:-webkit-autofill:focus,
-  select:-webkit-autofill:focus {
-    -webkit-text-fill-color: oklch(0.94 0.004 240) !important;
-    box-shadow: 0 0 0 1000px #0a0a0a inset !important;
-    -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
-    border-color: #f5a623 !important;
-  }
 }
 
 @layer utilities {

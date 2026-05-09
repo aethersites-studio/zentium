@@ -50,8 +50,8 @@ export function PainPoints() {
 
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {painPoints.map((item) => (
-            <StaggerItem key={item.problem}>
-              <div className="p-5 rounded-xl border border-border bg-card shadow-premium hover:shadow-premium-hover transition-all duration-250 group">
+            <StaggerItem key={item.problem} className="h-full">
+              <div className="h-full p-5 rounded-xl border border-border bg-card shadow-premium hover:shadow-premium-hover transition-all duration-250 group">
                 {/* Problem */}
                 <div className="flex items-start gap-3 mb-3 pb-3 border-b border-border/60">
                   <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0"

@@ -20,6 +20,14 @@ const escapeHtml = (value: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
+const toTitleCase = (value: string) =>
+  value
+    .trim()
+    .split(/[\s_-]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(" ");
+
 export async function POST(req: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -36,7 +44,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: `Missing field: ${missingField}` }, { status: 400 });
     }
 
-    const subject = `New Free Audit Request: ${body.firmName}`;
+    const normalizedPackage = body.package?.trim()
+      ? toTitleCase(body.package)
+      : "Not sure yet";
+    const subject = `New Audit Lead — ${body.firmName} (${normalizedPackage})`;
     const submittedAt = new Date().toLocaleString("en-US", {
       dateStyle: "medium",
       timeStyle: "short",
@@ -49,7 +60,7 @@ export async function POST(req: Request) {
     const safeWebsiteUrl = escapeHtml(websiteUrl);
     const safeMessage = escapeHtml(body.message?.trim() || "Not provided").replaceAll("\n", "<br/>");
     const safePhone = escapeHtml(body.phone?.trim() || "Not provided");
-    const safePackage = escapeHtml(body.package?.trim() || "Not provided");
+    const safePackage = escapeHtml(normalizedPackage);
     const safePracticeArea = escapeHtml(body.practiceArea?.trim() || "Not provided");
     const safeName = escapeHtml(body.name);
     const safeFirmName = escapeHtml(body.firmName);
@@ -165,7 +176,7 @@ export async function POST(req: Request) {
       `Phone: ${body.phone?.trim() || "Not provided"}`,
       `Website: ${websiteUrl}`,
       `Practice Area: ${body.practiceArea?.trim() || "Not provided"}`,
-      `Package: ${body.package?.trim() || "Not provided"}`,
+      `Package: ${normalizedPackage}`,
       "",
       "Message:",
       body.message?.trim() || "Not provided",

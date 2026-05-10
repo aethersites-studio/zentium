@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     const normalizedPackage = body.package?.trim()
       ? toTitleCase(body.package)
       : "Not sure yet";
-    const subject = `New Audit Lead — ${body.firmName} (${normalizedPackage})`;
+    const subject = `New Audit Lead: ${body.firmName}`;
     const submittedAt = new Date().toLocaleString("en-US", {
       dateStyle: "medium",
       timeStyle: "short",

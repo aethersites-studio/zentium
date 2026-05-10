@@ -108,9 +108,10 @@
   textarea:-webkit-autofill:focus,
   textarea:-webkit-autofill:active {
     -webkit-text-fill-color: oklch(0.94 0.004 240) !important;
+    background-color: #1a1a1a !important;
     box-shadow: 0 0 0 1000px #1a1a1a inset !important;
     -webkit-box-shadow: 0 0 0 1000px #1a1a1a inset !important;
-    transition: background-color 9999s ease-in-out 0s;
+    transition: background-color 0s ease-in-out 0s !important;
   }
 }
 

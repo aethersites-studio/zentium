@@ -171,7 +171,7 @@ export async function POST(req: Request) {
       body.message?.trim() || "Not provided",
     ].join("\n");
 
-    await resend.emails.send({
+    const resendResult = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || "Zentium Audit <onboarding@resend.dev>",
       to: ["hello@zentiumhq.com"],
       replyTo: body.email,
@@ -180,8 +180,20 @@ export async function POST(req: Request) {
       text,
     });
 
+    if (resendResult.error) {
+      console.error("Resend send error:", resendResult.error);
+      return NextResponse.json(
+        { error: "Email delivery failed. Please try again or email hello@zentiumhq.com." },
+        { status: 502 }
+      );
+    }
+
     return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ error: "Failed to submit request." }, { status: 500 });
+  } catch (error) {
+    console.error("Audit request API error:", error);
+    return NextResponse.json(
+      { error: "Failed to submit request. Please email hello@zentiumhq.com." },
+      { status: 500 }
+    );
   }
 }

@@ -14,43 +14,43 @@ const packages = [
   {
     id: "foundation",
     name: "Foundation",
-    tagline: "Built for firms that need a clean, credible SEO base.",
+    tagline: "Audit-first setup for under-optimized firms.",
     description:
-      "Best for newer or under-optimized firms that need core local visibility fixed first: technical cleanup, Google Business Profile consistency, and reliable baseline tracking.",
+      "Best for newer or under-optimized firms. Starts with a full working audit, then focused foundational fixes your team can build on month over month.",
     deliverables: [
       {
-        category: "Baseline & Priorities",
+        category: "Full Audit & Plan",
         items: [
-          "Initial local visibility and intake baseline review",
-          "Technical SEO audit with a prioritized action plan",
-          "Google Business Profile health review",
-          "Local competitor snapshot for your key practice areas",
+          "Full SEO and local visibility audit",
+          "Priority roadmap with what to fix first",
+          "Google Business Profile baseline review",
+          "Top local competitor benchmark",
         ],
       },
       {
-        category: "Technical & On-Site Improvements",
+        category: "Foundational Technical Work",
         items: [
-          "Core technical fixes (crawlability, indexing, site structure)",
-          "Local legal schema implementation and cleanup",
-          "Title tag and meta description improvements",
-          "Core page experience and speed improvements",
+          "Core technical cleanup (indexing, crawlability, structure)",
+          "On-page metadata fixes for core pages",
+          "Local legal schema setup and cleanup",
+          "Initial page speed and UX fixes",
         ],
       },
       {
-        category: "Local Presence Management",
+        category: "Local Presence Setup",
         items: [
-          "Google Business Profile optimization and category tuning",
-          "NAP consistency cleanup across core directories",
-          "Citation foundation setup and correction",
-          "Practice area page structure and internal linking review",
+          "Google Business Profile optimization",
+          "NAP consistency cleanup",
+          "Core citation corrections",
+          "Practice area page structure review",
         ],
       },
       {
-        category: "Reporting & Oversight",
+        category: "Reporting",
         items: [
-          "Monthly visibility report in plain language",
-          "Local ranking and GBP performance tracking",
-          "Next-month priorities and execution notes",
+          "Monthly progress summary",
+          "Baseline keyword and local visibility tracking",
+          "Next-step recommendations",
         ],
       },
     ],
@@ -60,46 +60,46 @@ const packages = [
   {
     id: "growth",
     name: "Growth",
-    tagline: "Consistent local growth with content and conversion focus.",
+    tagline: "Steady monthly execution for consistent local growth.",
     description:
-      "Best for firms that already have basics in place and want steady local growth through ongoing content execution, competitor visibility monitoring, and intake-focused improvements.",
+      "Best for firms that already have a base in place and want reliable month-to-month execution across local SEO, content, and intake-focused improvements.",
     deliverables: [
       {
         category: "Everything in Foundation, plus:",
         items: [],
       },
       {
-        category: "Localized Legal Content",
+        category: "Content & On-Page Execution",
         items: [
-          "Practice area content strategy and monthly content plan",
-          "Localized legal content production (practice area + city intent)",
-          "Internal linking improvements across core service pages",
-          "FAQ and AI-search-ready content refinements",
+          "Monthly legal content plan",
+          "Localized practice-area content execution",
+          "Internal linking improvements",
+          "On-page optimization for target pages",
         ],
       },
       {
-        category: "Conversion & Intake",
+        category: "Local Growth Management",
         items: [
-          "Intake flow conversion review",
-          "CTA placement and copy recommendations",
-          "Contact and conversion path refinements",
-          "Mobile UX checks for lead actions",
+          "Ongoing GBP optimization",
+          "Competitor visibility checks",
+          "Citation and profile maintenance",
+          "Local ranking movement monitoring",
         ],
       },
       {
-        category: "Competitive Visibility",
+        category: "Conversion Support",
         items: [
-          "Ongoing local competitor visibility analysis",
-          "Monthly ranking movement and coverage review",
-          "Competitor content and SERP change monitoring",
+          "Intake flow review",
+          "CTA and contact-flow recommendations",
+          "Mobile conversion UX checks",
         ],
       },
       {
         category: "Reporting & Communication",
         items: [
-          "Live reporting dashboard with monthly summary",
-          "Bi-weekly strategy and execution check-in",
-          "Async updates and task visibility",
+          "Monthly reporting dashboard",
+          "Scheduled strategy call cadence",
+          "Async updates on execution progress",
         ],
       },
     ],
@@ -109,39 +109,39 @@ const packages = [
   {
     id: "authority",
     name: "Authority",
-    tagline: "Higher-touch SEO management for stronger market positioning.",
+    tagline: "Higher-touch execution for stronger local positioning.",
     description:
-      "Best for firms that want stronger market positioning with broader content coverage, reputation and citation management, and tighter strategic oversight from month to month.",
+      "Best for firms that want broader execution scope, faster iteration, and stronger market positioning through expanded content and reputation management.",
     deliverables: [
       {
         category: "Everything in Growth, plus:",
         items: [],
       },
       {
-        category: "Expanded Content Execution",
+        category: "Expanded Monthly Execution",
         items: [
-          "Expanded localized legal content publishing cadence",
-          "Location and practice area page expansion",
-          "Quarterly long-form authority asset planning",
-          "Content performance review and iterative updates",
+          "Higher monthly content and optimization throughput",
+          "Location and practice-area expansion work",
+          "Deeper on-page and internal-link iteration",
+          "Faster implementation cycles",
         ],
       },
       {
         category: "Reputation & Citation Management",
         items: [
-          "Ongoing citation correction and maintenance",
-          "Review generation workflow recommendations",
-          "Review response guidance and quality control",
-          "Reputation monitoring across major platforms",
+          "Ongoing citation cleanup and management",
+          "Review strategy and response guidance",
+          "Reputation monitoring across core platforms",
+          "Brand consistency checks across listings",
         ],
       },
       {
         category: "Strategic Oversight",
         items: [
-          "Dedicated strategic lead and execution oversight",
-          "Weekly progress sync with next-step priorities",
-          "Monthly roadmap refinement based on performance",
-          "Faster support response for active initiatives",
+          "Higher-touch strategic oversight",
+          "Frequent progress and priority reviews",
+          "Monthly roadmap refinement",
+          "Priority support for active initiatives",
         ],
       },
     ],
@@ -257,7 +257,8 @@ export function ServicesPackages() {
         <FadeIn className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
             All packages are month-to-month after an initial 90-day commitment.
-            Pricing is customized after your free audit.{" "}
+            We start with a free high-level visibility snapshot, then scope a full
+            working audit inside your selected package.{" "}
             <Link href="/free-audit" className="text-foreground underline underline-offset-2 hover:no-underline">
               Request pricing
             </Link>

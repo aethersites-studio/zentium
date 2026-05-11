@@ -99,7 +99,7 @@ export function Navigation() {
                     </Link>
                   ))}
                 </nav>
-                <AuditButton label="Get Your Free Audit" onClick={() => setMobileOpen(false)} />
+                <AuditButton label="Free Visibility Review" onClick={() => setMobileOpen(false)} />
               </div>
             </SheetContent>
           </Sheet>

@@ -9,7 +9,7 @@ interface AuditButtonProps {
   onClick?: () => void;
 }
 
-export function AuditButton({ label = "Free Audit", href = "/free-audit", onClick }: AuditButtonProps) {
+export function AuditButton({ label = "Free Visibility Review", href = "/free-audit", onClick }: AuditButtonProps) {
   return (
     <div className={styles.buttonBorders}>
       <Link href={href} className={styles.primaryButton} onClick={onClick}>

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zentium.co"),
+  metadataBase: new URL("https://zentiumhq.com"),
   title: {
     default: "Zentium | SEO Growth Partner for Law Firms",
     template: "%s | Zentium",
@@ -35,10 +35,19 @@ export const metadata: Metadata = {
     "Google Business Profile optimization",
   ],
   authors: [{ name: "Zentium" }],
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon_io/favicon.ico", rel: "shortcut icon" },
+    ],
+    apple: [{ url: "/favicon_io/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/favicon_io/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://zentium.co",
+    url: "https://zentiumhq.com",
     siteName: "Zentium",
     title: "Zentium | SEO Growth Partner for Law Firms",
     description:
@@ -67,7 +76,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Zentium",
-  url: "https://zentium.co",
+  url: "https://zentiumhq.com",
   description:
     "Specialized SEO and digital growth partner for family law firms.",
   serviceType: "SEO Agency",

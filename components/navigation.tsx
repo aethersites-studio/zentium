@@ -53,7 +53,7 @@ export function Navigation() {
               width={1536}
               height={1024}
               priority
-              className="h-9 w-auto transition-opacity group-hover:opacity-80"
+              className="h-9 w-auto transition-opacity group-hover:opacity-80 [filter:brightness(0)_invert(1)]"
             />
           </Link>
 

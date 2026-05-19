@@ -33,7 +33,7 @@ export function Footer() {
                 alt="Zentium"
                 width={688}
                 height={62}
-                className="h-8 w-auto [filter:brightness(0)_invert(1)]"
+                className="h-6 w-auto [filter:brightness(0)_invert(1)]"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-4">

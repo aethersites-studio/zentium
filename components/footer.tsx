@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
 const footerLinks = {
@@ -27,9 +28,13 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4 group hover:opacity-80 transition-opacity">
-              <span className="text-base font-semibold tracking-tight">
-                <span style={{ color: "#F5A623" }}>Z</span>entium
-              </span>
+              <Image
+                src="/logos/zentium-website-logo.png"
+                alt="Zentium"
+                width={1536}
+                height={1024}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-4">
               Specialized SEO and intake optimization built exclusively for law firms.

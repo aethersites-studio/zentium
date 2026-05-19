@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
@@ -46,9 +47,14 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center group" aria-label="Zentium home">
-            <span className="text-2xl font-semibold tracking-tight text-white transition-opacity group-hover:opacity-80">
-              <span style={{ color: "#F5A623" }}>Z</span>entium
-            </span>
+            <Image
+              src="/logos/zentium-website-logo.png"
+              alt="Zentium"
+              width={1536}
+              height={1024}
+              priority
+              className="h-9 w-auto transition-opacity group-hover:opacity-80"
+            />
           </Link>
 
           {/* Desktop nav */}

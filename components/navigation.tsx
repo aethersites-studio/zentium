@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AuditButton } from "@/components/ui/audit-button";
@@ -18,6 +18,8 @@ export function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileMenuMounted, setMobileMenuMounted] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // All pages are dark nav is always transparent, darkens on scroll
   const isDarkHero = true;
@@ -31,6 +33,11 @@ export function Navigation() {
 
   useEffect(() => {
     setMobileOpen(false);
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setMobileMenuMounted(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -40,12 +47,40 @@ export function Navigation() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
+  }, []);
+
   const navBg = scrolled
     ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/8 shadow-sm"
     : "bg-transparent";
 
   const linkColor = "text-white/55 hover:text-white";
   const activeLinkColor = "text-white";
+
+  const openMobileMenu = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setMobileMenuMounted(true);
+    requestAnimationFrame(() => setMobileOpen(true));
+  };
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
+    closeTimerRef.current = setTimeout(() => {
+      setMobileMenuMounted(false);
+      closeTimerRef.current = null;
+    }, 220);
+  };
 
   return (
     <>
@@ -91,7 +126,7 @@ export function Navigation() {
               className="md:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
-              onClick={() => setMobileOpen((prev) => !prev)}
+              onClick={() => (mobileOpen ? closeMobileMenu() : openMobileMenu())}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -99,25 +134,35 @@ export function Navigation() {
         </div>
       </header>
 
-      {mobileOpen && (
-        <div className="fixed inset-0 z-[70] md:hidden bg-[#11151c]/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-[#11151c]/42">
+      {mobileMenuMounted && (
+        <div
+          className={cn(
+            "fixed inset-0 z-[70] md:hidden backdrop-blur-xl supports-[backdrop-filter]:bg-[#1c222b]/28 transition-opacity duration-200 ease-out",
+            mobileOpen ? "opacity-100 bg-[#1c222b]/35" : "pointer-events-none opacity-0 bg-[#1c222b]/0"
+          )}
+        >
           <div className="absolute top-4 right-4 z-10">
             <button
               type="button"
               className="p-2 rounded-md transition-colors text-white hover:bg-white/10"
               aria-label="Close menu"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               <X className="w-6 h-6" />
             </button>
           </div>
 
-          <div className="flex h-[100dvh] flex-col items-center justify-center px-6 py-10">
+          <div
+            className={cn(
+              "flex h-[100dvh] flex-col items-center justify-center px-6 py-10 transition-all duration-200 ease-out will-change-transform",
+              mobileOpen ? "translate-y-0 opacity-100" : "translate-y-1.5 opacity-0"
+            )}
+          >
             <Link
               href="/"
               className="absolute top-8 left-1/2 -translate-x-1/2 group"
               aria-label="Zentium home"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               <Image
                 src="/logos/zentium-website-logo.png"
@@ -134,7 +179,8 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  prefetch
+                  onClick={closeMobileMenu}
                   className={cn(
                     "text-3xl font-semibold tracking-tight transition-colors",
                     pathname === link.href ? "text-white" : "text-white/70 hover:text-white"
@@ -146,7 +192,7 @@ export function Navigation() {
             </nav>
 
             <div className="mt-10">
-              <AuditButton label="Free Visibility Review" onClick={() => setMobileOpen(false)} />
+              <AuditButton label="Free Visibility Review" onClick={closeMobileMenu} />
             </div>
           </div>
         </div>

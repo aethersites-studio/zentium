@@ -4,9 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { AuditButton } from "@/components/ui/audit-button";
 
 const navLinks = [
@@ -33,6 +32,13 @@ export function Navigation() {
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   const navBg = scrolled
     ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/8 shadow-sm"
@@ -79,42 +85,54 @@ export function Navigation() {
           </div>
 
           {/* Mobile hamburger */}
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger
-              className="md:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
-              aria-label="Open menu"
-            >
-              <Menu className="w-5 h-5" />
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="inset-0 h-dvh w-screen max-w-none border-0 pt-16 bg-[#0A0A0A]/98 backdrop-blur-md"
-              showCloseButton
-            >
-              <div className="flex flex-col h-full px-6 pb-8">
-                <nav className="flex flex-col gap-2 mb-10" aria-label="Mobile navigation">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={cn(
-                        "px-3 py-3 rounded-md text-base font-medium transition-colors",
-                        pathname === link.href
-                          ? "bg-muted text-foreground"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-                <AuditButton label="Free Visibility Review" onClick={() => setMobileOpen(false)} />
-              </div>
-            </SheetContent>
-          </Sheet>
+          <button
+            type="button"
+            className="md:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((prev) => !prev)}
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
+
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[60] md:hidden bg-[#0A0A0A]/98 backdrop-blur-sm">
+          <div className="absolute top-4 right-4">
+            <button
+              type="button"
+              className="p-2 rounded-md transition-colors text-white hover:bg-white/10"
+              aria-label="Close menu"
+              onClick={() => setMobileOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="flex h-full flex-col items-center justify-center px-6">
+            <nav className="flex flex-col items-center gap-6" aria-label="Mobile navigation">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "text-3xl font-semibold tracking-tight transition-colors",
+                    pathname === link.href ? "text-white" : "text-white/70 hover:text-white"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-10">
+              <AuditButton label="Free Visibility Review" onClick={() => setMobileOpen(false)} />
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

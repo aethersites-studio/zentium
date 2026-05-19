@@ -31,9 +31,9 @@ export function Footer() {
               <Image
                 src="/logos/zentium-website-logo.png"
                 alt="Zentium"
-                width={1115}
-                height={1024}
-                className="h-10 w-auto [filter:brightness(0)_invert(1)]"
+                width={688}
+                height={62}
+                className="h-8 w-auto [filter:brightness(0)_invert(1)]"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-4">

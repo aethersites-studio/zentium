@@ -50,10 +50,10 @@ export function Navigation() {
             <Image
               src="/logos/zentium-website-logo.png"
               alt="Zentium"
-              width={1115}
-              height={1024}
+              width={688}
+              height={62}
               priority
-              className="h-11 w-auto transition-opacity group-hover:opacity-80 [filter:brightness(0)_invert(1)]"
+              className="h-10 w-auto transition-opacity group-hover:opacity-80 [filter:brightness(0)_invert(1)]"
             />
           </Link>
 

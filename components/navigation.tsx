@@ -86,16 +86,20 @@ export function Navigation() {
             >
               <Menu className="w-5 h-5" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 pt-12" showCloseButton>
-              <div className="flex flex-col h-full px-4 pb-6">
-                <nav className="flex flex-col gap-1 mb-8" aria-label="Mobile navigation">
+            <SheetContent
+              side="right"
+              className="inset-0 h-dvh w-screen max-w-none border-0 pt-16 bg-[#0A0A0A]/98 backdrop-blur-md"
+              showCloseButton
+            >
+              <div className="flex flex-col h-full px-6 pb-8">
+                <nav className="flex flex-col gap-2 mb-10" aria-label="Mobile navigation">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
-                        "px-3 py-2.5 rounded-md text-sm font-medium transition-colors",
+                        "px-3 py-3 rounded-md text-base font-medium transition-colors",
                         pathname === link.href
                           ? "bg-muted text-foreground"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted"

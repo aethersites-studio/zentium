@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -12,15 +12,14 @@ export function Hero() {
       {/* Dot grid */}
       <div className="dot-grid absolute inset-0 opacity-100" aria-hidden="true" />
 
-      {/* Orb glow: gold left */}
+      {/* Orb glows — hidden on mobile to reduce GPU cost */}
       <div
-        className="absolute -left-48 top-1/4 w-[600px] h-[600px] rounded-full opacity-[0.10] blur-[120px] pointer-events-none"
+        className="hidden sm:block absolute -left-48 top-1/4 w-[600px] h-[600px] rounded-full opacity-[0.10] blur-[120px] pointer-events-none"
         style={{ background: "radial-gradient(circle, #F5A623 0%, transparent 70%)" }}
         aria-hidden="true"
       />
-      {/* Orb glow: warm amber right */}
       <div
-        className="absolute -right-48 bottom-1/4 w-[500px] h-[500px] rounded-full opacity-[0.07] blur-[100px] pointer-events-none"
+        className="hidden sm:block absolute -right-48 bottom-1/4 w-[500px] h-[500px] rounded-full opacity-[0.07] blur-[100px] pointer-events-none"
         style={{ background: "radial-gradient(circle, #FFD97D 0%, transparent 70%)" }}
         aria-hidden="true"
       />
@@ -28,7 +27,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
         {/* Eyebrow */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease }}
@@ -39,10 +38,10 @@ export function Hero() {
             Specialized SEO Growth for Family Law Firms
           </span>
           <span className="block w-6 h-px" style={{ background: "#F5A623" }} />
-        </motion.div>
+        </m.div>
 
         {/* Headline */}
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease }}
@@ -51,10 +50,10 @@ export function Hero() {
           Turn Search Into{" "}
           <br className="hidden sm:block" />
           <span className="text-gradient-brand">Retained Cases</span>
-        </motion.h1>
+        </m.h1>
 
         {/* Sub */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease }}
@@ -63,10 +62,10 @@ export function Hero() {
           We help family law firms dominate local search, convert qualified
           consultations, and grow retained cases with full operational
           transparency at every step.
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease }}
@@ -86,10 +85,10 @@ export function Hero() {
           >
             See How It Works
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Trust row */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease }}
@@ -107,7 +106,7 @@ export function Hero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

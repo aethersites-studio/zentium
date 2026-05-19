@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { type ReactNode } from "react";
 
 interface FadeInProps {
@@ -26,7 +26,7 @@ export function FadeIn({
 }: FadeInProps) {
   const { x, y } = directionMap[direction];
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -34,7 +34,7 @@ export function FadeIn({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -48,7 +48,7 @@ export function StaggerChildren({
   staggerDelay?: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
@@ -59,7 +59,7 @@ export function StaggerChildren({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -71,7 +71,7 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       variants={{
         hidden: { opacity: 0, y: 16 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } },
@@ -79,6 +79,6 @@ export function StaggerItem({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

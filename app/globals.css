@@ -192,4 +192,20 @@
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
+
+  /* Prevent layout recalc from dot-grid repaints */
+  .dot-grid {
+    contain: strict;
+    will-change: auto;
+  }
+}
+
+/* Respect user motion preference — cut all transitions/animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

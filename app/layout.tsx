@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
+import { MotionProvider } from "@/components/motion-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -103,10 +104,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <MobileStickyCTA />
+        <MotionProvider>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <MobileStickyCTA />
+        </MotionProvider>
       </body>
     </html>
   );

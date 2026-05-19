@@ -48,9 +48,10 @@ export function Navigation() {
   const activeLinkColor = "text-white";
 
   return (
-    <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", navBg)}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <>
+      <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", navBg)}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center group" aria-label="Zentium home">
             <Image
@@ -84,22 +85,23 @@ export function Navigation() {
             <AuditButton />
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            type="button"
-            className="md:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((prev) => !prev)}
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+            {/* Mobile hamburger */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((prev) => !prev)}
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-[60] md:hidden bg-[#0A0A0A]/98 backdrop-blur-sm">
-          <div className="absolute top-4 right-4">
+        <div className="fixed inset-0 z-[70] md:hidden bg-[#11151c]/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-[#11151c]/42">
+          <div className="absolute top-4 right-4 z-10">
             <button
               type="button"
               className="p-2 rounded-md transition-colors text-white hover:bg-white/10"
@@ -110,8 +112,24 @@ export function Navigation() {
             </button>
           </div>
 
-          <div className="flex h-full flex-col items-center justify-center px-6">
-            <nav className="flex flex-col items-center gap-6" aria-label="Mobile navigation">
+          <div className="flex h-[100dvh] flex-col items-center justify-center px-6 py-10">
+            <Link
+              href="/"
+              className="absolute top-8 left-1/2 -translate-x-1/2 group"
+              aria-label="Zentium home"
+              onClick={() => setMobileOpen(false)}
+            >
+              <Image
+                src="/logos/zentium-website-logo.png"
+                alt="Zentium"
+                width={688}
+                height={62}
+                priority
+                className="h-5 w-auto transition-opacity group-hover:opacity-80 [filter:brightness(0)_invert(1)]"
+              />
+            </Link>
+
+            <nav className="mt-10 flex flex-col items-center gap-6" aria-label="Mobile navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -133,6 +151,6 @@ export function Navigation() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
